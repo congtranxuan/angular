@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" >
+      <div class="col-3 square" *ngFor="let item of menu">
+          <img width="260px" height="230px" src={{item.image}}>
+          <div><b>Name :{{item.name}}</b></div>
+          <div><b>Veg:
+            <div *ngIf="item.veg==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>Yes</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>No</span>
+              </ng-template>
+          </b></div>
+          <div><b>Price: {{item.price | currency}}</b></div>
+          <form [formGroup]="inputForm" (ngSubmit)="addtocart(item)">
+            <div class="form-group">
+                <label><b>Qty:<span><input style="width: 60px" type="number" min="1" formControlName="numbero" class="form-control"></span></b></label>
+                <div>
+                    <button type="submit" class="btn btn-primary">AddtoCart</button>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+    
+  </div>
+  
+</div>
+
+  

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h2>Creating Menu Form</h2>
+    <div [ngStyle]="{'color':'red'}">{{incorrectMessage}}</div>
+    <form [formGroup]="menuForm" (ngSubmit)="uploader.uploadAll()" validate>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" class="form-control col-sm-4 col-xs-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="veg">
+            <label class="form-check-label">Veg</label>
+        </div>
+        <label>Price $</label>
+        <span><input type="currency" formControlName="price" class="form-control col-sm-2 col-xs-2"></span>
+        </div>
+      <div>
+        <label><b>MENU'S IMAGE</b></label>
+        <small>*required</small>
+        <div>
+            <input class="btn" type="file" name="file" ng2FileSelect [uploader]="uploader" />
+         </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="!menuForm.valid || !uploader.getNotUploadedItems().length" type="submit">Create</button>
+    <button class="btn btn-primary" (click)="return()">Cancel</button>
+    
+
+  </form>
+</div>
+  
+   
+   

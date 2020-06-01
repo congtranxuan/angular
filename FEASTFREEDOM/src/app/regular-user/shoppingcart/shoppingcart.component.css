@@ -1,0 +1,11 @@
+.inline{
+    display:inline;
+   
+}
+.right {
+    position: absolute;
+    text-align: right;
+    right: 50px;   
+    background-color:lightblue;
+    padding: 20px; 
+}

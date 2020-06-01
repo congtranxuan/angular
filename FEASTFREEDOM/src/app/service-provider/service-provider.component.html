@@ -1,0 +1,105 @@
+<router-outlet></router-outlet>
+
+<div class="container">
+<div>Your Business Info:</div>
+<div><img width="300px" src={{accountinfo.image}}><div>
+<button class ="btn btn-primary" (click)="updateinfo()">Update Business Information</button>
+<div>Name: {{accountinfo.name}}</div>
+<div>Email: {{accountinfo.email}}</div>
+<div>Business days:</div>
+<div>Monday
+  <div *ngIf="accountinfo.onmon==1; then block; else elseblock"></div>
+    <ng-template #block>
+    <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+    </ng-template>
+    <ng-template #elseblock>
+    <span>Closed</span>
+    </ng-template>
+</div>
+<div>Tuesday
+  <div *ngIf="accountinfo.ontue==1; then block; else elseblock"></div>
+    <ng-template #block>
+    <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+    </ng-template>
+    <ng-template #elseblock>
+    <span>Closed</span>
+    </ng-template>
+  </div>
+<div>Wednesday
+    <div *ngIf="accountinfo.onwed==1; then block; else elseblock"></div>
+      <ng-template #block>
+      <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+      </ng-template>
+      <ng-template #elseblock>
+      <span>Closed</span>
+      </ng-template>
+  </div>
+<div>Thursday
+    <div *ngIf="accountinfo.onthu==1; then block; else elseblock"></div>
+      <ng-template #block>
+      <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+      </ng-template>
+      <ng-template #elseblock>
+      <span>Closed</span>
+      </ng-template>
+  </div>
+<div>Friday
+    <div *ngIf="accountinfo.onfri==1; then block; else elseblock"></div>
+      <ng-template #block>
+      <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+      </ng-template>
+      <ng-template #elseblock>
+      <span>Closed</span>
+      </ng-template>
+  </div>
+<div>Saturday
+    <div *ngIf="accountinfo.onsat==1; then block; else elseblock"></div>
+      <ng-template #block>
+      <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+      </ng-template>
+      <ng-template #elseblock>
+      <span>Closed</span>
+      </ng-template>
+  </div>
+<div>Sunday
+    <div *ngIf="accountinfo.onsun==1; then block; else elseblock"></div>
+      <ng-template #block>
+      <span>{{accountinfo.starttime}}{{"AM - "}}{{accountinfo.endtime}}PM</span>
+      </ng-template>
+      <ng-template #elseblock>
+      <span>Closed</span>
+      </ng-template>
+</div>
+
+</div>
+
+<div class="container">
+    <div >
+      <button class ="btn btn-primary" (click)="addmenu()">Add Menu</button>
+    </div>
+   
+    <div class="row" >
+      <div class="col-3 square" *ngFor="let item of menu">
+          <img width="200px" height="180px" src={{item.image}}>
+          <div>Name :{{item.name}}</div>
+          <div>Veg:
+            <div *ngIf="item.veg==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>Yes</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>No</span>
+              </ng-template>
+          </div>
+          <div>Price: {{item.price | currency}}</div>
+          <button class="btn btn-primary" (click)="delete(item.id)">Delete</button>
+          <span><button class="btn btn-primary" (click)="edit(item.id, item.name, item.veg, item.price, item.image)">Edit</button></span>
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+  

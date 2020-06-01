@@ -1,0 +1,50 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <div *ngIf="servicer; then block2; else elseblock2"></div>
+      <ng-template #block2>
+          <a class="navbar-brand"><b>FEASTFREEDOM</b></a>
+      </ng-template>
+      <ng-template #elseblock2>
+          <a routerLink="/home" class="navbar-brand">FEASTFREEDOM</a>
+      </ng-template>
+  <a class="navbar-text" routerLink ="/provider">Service Provider Portal</a>
+ 
+  <div *ngIf="servicer; then block; else elseblock"></div>
+      <ng-template #block>
+        <div class="dropdown">
+          <span class="navbar">{{servicer.name}}</span>
+          <div class="dropdown-content">
+            <a (click)="logout()">Logout</a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #elseblock>
+         <div *ngIf="user; then block1; else elseblock1"></div>
+          <ng-template #block1>
+            <ul class="nav navbar justify-content-end">
+              <li class="nav-item">
+                <div *ngIf="countitem; then block3; else elseblock3"></div>
+                  <ng-template #block3> 
+                    <a class="nav-link" routerLink = "home/shoppingcart">Cart ({{countitem}})</a>
+                  </ng-template>
+                  <ng-template #elseblock3> 
+                    <a class="nav-link" routerLink = "home/shoppingcart">Cart</a>
+                  </ng-template>
+              </li>
+              <li class="navbar navbar-nav">
+                <div class="dropdown">
+                  <div>Hello {{user.firstname}}{{" "}}{{user.lastname}}</div>
+                  <div class="dropdown-content">
+                    <a (click)="logout()">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ng-template>
+          <ng-template #elseblock1>
+            <span class="navbar"><a routerLink ="login">Login</a></span>
+          </ng-template>
+      </ng-template>
+</nav>
+<div class="center">
+  <router-outlet></router-outlet>
+</div>

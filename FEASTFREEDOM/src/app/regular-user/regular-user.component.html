@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row" >
+      <div class="col-3 square" (click) = gomenu(service) *ngFor="let service of servicers">
+          <img width="280px" height="240px" src={{service.image}}>
+          <h3>{{service.name}}</h3>
+          <div><b>{{service.email}}</b></div>
+          <div>Monday
+          <div *ngIf="service.onmon==1; then block; else elseblock"></div>
+            <ng-template #block>
+            <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+            </ng-template>
+            <ng-template #elseblock>
+            <span>Closed</span>
+            </ng-template>
+        </div>
+        <div>Tuesday
+            <div *ngIf="service.ontue==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+          <div>Wednesday
+            <div *ngIf="service.onwed==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+          <div>Thursday
+            <div *ngIf="service.onthu==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+          <div>Friday
+            <div *ngIf="service.onfri==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+          <div>Saturday
+            <div *ngIf="service.onsat==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+          <div>Sunday
+            <div *ngIf="service.onsun==1; then block; else elseblock"></div>
+              <ng-template #block>
+              <span>{{service.starttime}}{{"AM - "}}{{service.endtime}}PM</span>
+              </ng-template>
+              <ng-template #elseblock>
+              <span>Closed</span>
+              </ng-template>
+          </div>
+    
+    </div>
+  </div>
+</div>
+
+  

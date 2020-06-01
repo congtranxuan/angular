@@ -1,0 +1,75 @@
+
+<div class="container-fluid">
+    <h2>Add Business Hours and Representative Image</h2>
+    
+    <form #userForm="ngForm" (ngSubmit)="uploader.uploadAll()" validate>
+           
+    <label><b>Business Days</b></label>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onmon" [(ngModel)]="userModel.onmon">
+        <label class="form-check-label">Monday</label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="ontue" [(ngModel)]="userModel.ontue">
+        <label class="form-check-label">Tuesday</label>  
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onwed" [(ngModel)]="userModel.onwed">
+        <label class="form-check-label">Wednesday</label>  
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onthu" [(ngModel)]="userModel.onthu">
+        <label class="form-check-label">Thursday</label>  
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onfri" [(ngModel)]="userModel.onfri">
+        <label class="form-check-label">Friday</label>  
+    </div>
+
+   <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onsat" [(ngModel)]="userModel.onsat">
+        <label class="form-check-label">Saturday</label>  
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="onsun" [(ngModel)]="userModel.onsun">
+        <label class="form-check-label">Sunday</label> 
+    </div>
+
+    <label><b>Business Hours</b></label>
+
+    <div class="form-check">
+        <label class="form-check-label">Start</label>
+        <select [(ngModel)]='userModel.starttime' name="starttime">
+            <option [value]="time" *ngFor="let time of times">{{time}}</option>
+        </select>
+        <label class="form-check-label">AM</label>
+    </div>  
+
+    <div class="form-check">
+        <label class="form-check-label" >End</label>
+        <select [(ngModel)]='userModel.endtime' name="endtime">
+            <option [value]="time" *ngFor="let time of times">{{time}}</option>
+        </select>
+        <label class="form-check-label">PM</label>
+    </div>  
+
+    <div>
+        <label><b>YOUR REPRESENTATIVE IMAGE</b></label>
+        <small>*required</small>
+        <div>
+            <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        <!--<button type="button" class="btn btn-success btn-s" 
+            (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                Upload
+            </button> -->
+        </div>
+    </div>
+    <button class="btn btn-primary btn-success btn-s" [disabled]="userForm.form.invalid || !uploader.getNotUploadedItems().length" type="submit">Register</button>
+    </form>
+    </div>
+    
